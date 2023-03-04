@@ -1,0 +1,3 @@
+[submodule "zmk-nodefre-config"]
+	path = zmk-nodefre-config
+	url = https://github.com/urob/zmk-nodefree-config
