@@ -81,10 +81,10 @@
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-  &trans  &trans  &trans &trans  &trans  &trans          &kp APOS  &kp AMPS  &kp KP_ASTERISK &kp BSLH &trans &kp GRAVE
-  &trans  &trans   &trans &trans   &trans   &trans       &kp COLON &kp DLLR  &kp PERCENT     &kp CARET &trans &trans
-  &trans  &trans   &trans &trans   &trans   &trans       &kp TILDE &kp EXCL  &kp AT        &kp HASH &kp PIPE &trans
-                    	     &trans &trans   &trans      &kp LBKT   &trans    &kp RBKT
+  &trans  &trans  &trans  &trans  &trans  &trans      &kp APOS  &kp AMPS  &kp KP_ASTERISK &kp BSLH &trans &kp GRAVE
+  &trans  &trans  &trans  &trans  &trans  &trans      &kp COLON &kp DLLR  &kp PERCENT     &kp CARET &trans &trans
+  &trans  &trans  &trans  &trans  &trans  &trans      &kp TILDE &kp EXCL  &kp AT        &kp HASH &kp PIPE &trans
+                    	  &trans  &trans  &trans      &kp LBKT  &trans   &kp RBKT
                         >;
                 };
 
