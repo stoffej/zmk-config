@@ -1,0 +1,19 @@
+// Behaviors to support US like symbols when host layoust is SE
+
+// , <
+comm_labk: se-comm-se-labk {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_COMM_SE_LABK";
+  #binding-cells = <0>;
+  bindings = <&kp SE_COMM>, <&kp SE_LABK>;
+  mods = <(MOD_LALT|MOD_RALT)>;
+};
+
+// . >
+dot_rabk: se-dot-se-rabk {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_DOT_SE_RABK";
+  #binding-cells = <0>;
+  bindings = <&kp SE_DOT>, <&kp SE_RABK>;
+  mods = <(MOD_LALT|MOD_RALT)>;
+};
