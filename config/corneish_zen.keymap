@@ -13,12 +13,45 @@
 
 
 #define BASE   0
-#define LAY0   1
-#define LAY1   2
-#define LAY2   3
-#define LAY3   4
-#define LAY4   5
-#define LAY5   6
+#define L1   1
+#define L2   2
+#define L3   3
+#define L4   4
+#define L5   5
+#define L6   6
+
+// / {
+//     macros {
+//         cd_dot: cd_dot {
+//             label = "cd_dot_dot";
+//             compatible = "zmk,behavior-macro";
+//             wait-ms = <5>;
+//             tap-ms = <5>;
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_tap &kp C &kp D &kp DOT &kp DOT>
+//                 , <&macro_tap &kp ENTER>
+//                 ;
+//         };
+
+//     };
+// };
+
+
+// / {
+//     macros {
+//         zed_em_kay: zed_em_kay {
+//             label = "ZM_zed_em_kay";
+//             compatible = "zmk,behavior-macro";
+//             #binding-cells = <0>;
+//             bindings
+//                 = <&macro_press &kp LSHFT>
+//                 , <&macro_tap &kp Z &kp M &kp K>
+//                 , <&macro_release &kp LSHFT>
+//                 ;
+//         };
+//     };
+// };
 
 / {
   chosen {
@@ -45,30 +78,32 @@
 // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+
+
                         bindings = <
-   &kp ESC   &kp Q &kp W &kp F &kp P &kp B      &kp J &kp L  &kp U  &kp Y   &mt SEMI COLON &lt DQT SQT
-   &kp LALT  &mt LSHFT A &mt LEFT_CONTROL R     &kp S &kp T &kp G    &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B      &kp N &kp M  &comm_labk &dot_rabk &kp FSLH &kp ESC
-   &lt LAY0 BSPC  &lt LAY1 DEL &lt LAY2 TAB     &lt LAY3 ENTER &lt LAY4 SPACE &lt LAY5 LGUI
+   &kp ESC   &kp Q &kp W &kp F &kp P &kp B                         &kp J &kp L  &kp U  &kp Y  &se_semi_colon &se_qout_se_quot
+  &kp LALT  &mt LSHFT A &mt LCTRL R  &kp S &kp T &kp G             &kp M &kp N  &kp E  &mt RCTRL I &mt RSHFT O &kp LALT
+  &kp LGUI   &kp Z &kp X &kp C &kp D &kp V                        &kp K &kp H  &comm_labk &dot_rabk &se_slash_se_qes &kp LGUI
+                    	   &lt L1 BSPC  &lt L2 DEL &lt L3 TAB                              &lt L4 ENTER &lt L5 SPACE &lt L6 LGUI
                         >;
                 };
                 layer_0 {
-                        label = "LAY0";
+                        label = "L1";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
 // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
 // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &bootloader  &trans        &trans       &trans     &trans     &trans               &kp PLUS   &kp N7   &kp N8 &kp N9    &kp SLASH  &trans
-   &kp LALT       &kp LSHIFT    &kp LEFT_CONTROL  &trans   &trans  &trans             &kp MINUS  &kp N4   &kp N5 &kp N6    &kp COMMA  &trans
-   &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp EQUAL  &kp N1   &kp N2 &kp N3    &kp DOT    &trans
-                          	       &trans     &trans      &trans                  &kp KP_LPAR  &kp N0   &kp KP_RPAR
+   &bootloader  &trans        &trans       &trans     &trans     &trans               &kp SE_PLUS  &kp N7   &kp N8 &kp N9    &kp SE_SLSH  &trans
+   &kp LALT       &kp LSHFT    &kp LCTRL  &trans   &trans  &trans             &kp SE_MINS  &kp N4   &kp N5 &kp N6    &comm_labk  &trans
+   &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp SE_EQL   &kp N1   &kp N2 &kp N3    &dot_rabk    &trans
+                          	       &trans     &trans      &trans                  &kp SE_LPRN  &kp N0   &kp SE_RPRN
                         >;
                 };
 
                 layer_1 {
-                        label = "LAY1";
+                        label = "L2";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -77,83 +112,84 @@
                         bindings = <
    &trans  &trans  &trans  &trans  &trans  &trans    &kp PG_UP &kp HOME  &kp UP_ARROW &kp END &kp INSERT &trans
    &trans  &trans  &trans  &trans  &trans  &trans    &kp PG_DN &kp LEFT_ARROW &kp DOWN_ARROW  &kp RIGHT_ARROW &kp BSLH &trans
-   &trans  &trans  &trans  &trans  &trans  &trans    &trans &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	   &trans  &trans  &trans    &kp LBKT   &trans    &kp RBKT
+   &trans  &trans  &trans  &trans  &trans  &trans    &trans &kp SE_PLUS  &kp SE_LBRC &kp SE_RBRC &kp SE_PIPE &kp T
+                    	   &trans  &trans  &trans    &kp SE_LCBR   &trans    &kp SE_RCBR
                         >;
                 };
 
+
+
                 layer_2 {
-                        label = "LAY2";
+                        label = "L3";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-  &trans  &trans  &trans  &trans  &trans  &trans      &kp APOS  &kp AMPS  &kp KP_ASTERISK &kp BSLH &trans &kp GRAVE
-  &trans  &trans  &trans  &trans  &trans  &trans      &kp COLON &kp DLLR  &kp PERCENT     &kp CARET &trans &trans
-  &trans  &trans  &trans  &trans  &trans  &trans      &kp TILDE &kp EXCL  &kp AT        &kp HASH &kp PIPE &trans
-                    	  &trans  &trans  &trans      &kp LBKT  &trans   &kp RBKT
+  &trans  &trans  &trans  &trans  &trans  &trans      &kp SE_QUOT  &kp SE_AMPR  &kp SE_ASTR  &kp SE_BSLS  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans      &kp SE_COLN  &kp SE_DLR  &kp SE_PERC  &kp SE_CIRC  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans  &trans      &kp SE_TILD  &kp SE_EXLM  &kp SE_AT  &kp SE_HASH  &kp SE_PIPE  &trans
+                    	  &trans  &trans  &trans      &kp SE_LBRC  &trans   &kp SE_RBRC
                         >;
                 };
 
                 layer_3 {
-                        label = "LAY3";
+                        label = "L4";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans   &trans  &trans   &trans &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp DLLR  &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &trans  &trans  &trans &kp C_MUTE  &trans   &kp C_VOL_UP      &trans  &kp F9   &kp F10  &kp F11  &kp F12  &trans
+   &trans  &trans  &kp C_PREV &kp C_PP   &kp C_NEXT   &kp C_VOL_DN      &trans  &kp F5   &kp F6   &kp F7   &kp F8   &trans
+   &trans  &trans  &trans &trans   &trans   &trans      &trans  &kp F1   &kp F2   &kp F3   &kp F4   &trans
+                          &trans   &trans   &trans      &trans  &trans   &trans
                         >;
                 };
 
                 layer_4 {
-                        label = "LAY4";
+                        label = "L5";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &trans  &trans  &trans &trans   &trans   &trans         &trans   &trans   &trans   &trans   &trans   &trans
+   &trans  &trans  &kp SE_ARNG &kp SE_ADIA   &kp SE_ODIA   &trans   &trans   &trans   &trans   &trans   &trans
+   &trans  &trans  &trans &trans   &trans   &trans         &trans   &trans   &trans   &trans   &trans   &trans
+                          &trans   &trans   &trans         &trans   &trans   &trans
                         >;
                 };
 
                 layer_5 {
-                        label = "LAY5";
+                        label = "layer_6";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                    	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+   &trans &trans   &trans &trans   &trans   &trans           &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &trans &trans   &trans &trans   &trans   &trans           &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	     &kp LGUI &trans   &kp SPACE     &kp RET   &trans    &kp RALT
                         >;
                 };
-
                 layer_6 {
-                        label = "LAY6";
+                        label = "L6";
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
 // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT     &kp PLUS  &kp 7  &kp 8  &kp 9 &trans &trans
-   &kp LCTRL &trans   &trans &trans   &trans   &trans        &kp MINUS &kp 4  &kp 5  &kp 6 &trans &trans
-   &kp LSHFT &trans   &trans &trans   &trans   &trans        &kp EQUAL &kp 1  &kp 2  &kp 3 &kp PIPE &trans
-                    	     &kp LGUI &trans   &kp SPACE     &trans   &kp 0   &trans
+   &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &bootloader
+   &trans &trans   &trans &trans   &trans   &trans           &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+   &trans &trans   &trans &trans   &trans   &trans           &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+                    	     &kp LGUI &trans   &kp SPACE     &kp RET   &trans    &kp RALT
                         >;
                 };
         };

@@ -6,7 +6,7 @@ comm_labk: se-comm-se-labk {
   label = "SE_COMM_SE_LABK";
   #binding-cells = <0>;
   bindings = <&kp SE_COMM>, <&kp SE_LABK>;
-  mods = <(MOD_LALT|MOD_RALT)>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
 // . >
@@ -15,5 +15,32 @@ dot_rabk: se-dot-se-rabk {
   label = "SE_DOT_SE_RABK";
   #binding-cells = <0>;
   bindings = <&kp SE_DOT>, <&kp SE_RABK>;
-  mods = <(MOD_LALT|MOD_RALT)>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// " '
+se_qout_se_quot: se-qout-se-quot {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_QOUT_SE_QUOT";
+  #binding-cells = <0>;
+  bindings = <&kp SE_DQUO>, <&kp SE_QUOT>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// ; :
+se_semi_colon: se-semi-colon {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_SEMI_COLON_SE_COLON";
+  #binding-cells = <0>;
+  bindings = <&kp SE_SCLN>, <&kp SE_COLN>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// ?
+se_slash_se_qes: se-slash-se-qes {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_SLASH_SE_QES";
+  #binding-cells = <0>;
+  bindings = <&kp SE_SLSH>, <&kp SE_QUES>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
 };
