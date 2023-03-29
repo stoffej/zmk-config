@@ -53,6 +53,34 @@
 //     };
 // };
 
+
+
+/{
+ macros {
+    git_st: git_st {
+      label = "git_st_st";
+      compatible = "zmk,behavior-macro";
+      wait-ms = <0>;
+       #binding-cells = <0>;
+      bindings
+      = <&kp G &kp I &kp T &kp SPACE &kp S &kp T &kp A &kp T>
+      , <&kp U &kp S &kp ENTER>
+      ;
+    };
+    cd_dot: cd_dot {
+            label = "cd_dot_dot";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+             #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp C &kp D &kp SPACE &kp SE_DOT &kp SE_DOT>
+                , <&macro_tap &kp ENTER>
+                ;
+   };
+ };
+ };
+
+
 / {
   chosen {
     zmk,matrix_transform = &default_transform;
@@ -111,8 +139,8 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &trans  &trans  &trans  &trans  &trans  &trans    &kp PG_UP &kp HOME  &kp UP_ARROW &kp END &kp INSERT &trans
-   &trans  &trans  &trans  &trans  &trans  &trans    &kp PG_DN &kp LEFT_ARROW &kp DOWN_ARROW  &kp RIGHT_ARROW &kp BSLH &trans
-   &trans  &trans  &trans  &trans  &trans  &trans    &trans &kp SE_PLUS  &kp SE_LBRC &kp SE_RBRC &kp SE_PIPE &kp T
+   &trans  &trans  &trans  &trans  &trans  &trans    &kp PG_DN &kp LEFT_ARROW &kp DOWN_ARROW  &kp RIGHT_ARROW &git_st &trans
+   &trans  &trans  &trans  &trans  &trans  &trans    &trans &kp SE_PLUS  &kp SE_LBRC &kp SE_RBRC &kp SE_PIPE &cd_dot
                     	   &trans  &trans  &trans    &kp SE_LCBR   &trans    &kp SE_RCBR
                         >;
                 };
